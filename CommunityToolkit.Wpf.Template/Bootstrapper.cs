@@ -123,7 +123,7 @@ public class Bootstrapper : BootstrapperBase<ShellView, ShellViewModel>
     protected override void Configure(ContainerBuilder builder)
     {
         var setup = new SetupModel(); // 설정 파일 로딩 포함
-
+        setup.LoadDefaultSettings();
         // DI 컨테이너에 싱글 인스턴스로 등록
         builder.RegisterInstance(setup).AsSelf().SingleInstance();
         builder.RegisterType<PanelNavigationManager>().AsSelf().SingleInstance();

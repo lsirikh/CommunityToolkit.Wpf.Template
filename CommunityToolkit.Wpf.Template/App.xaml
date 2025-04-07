@@ -9,7 +9,7 @@
 	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="/Resources/ResourceDictionary.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/CommunityToolkit.Wpf.Template;component/Resources/ResourceDictionary.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 
 			<!--  직접 정의한 DataTemplate 리소스들  -->

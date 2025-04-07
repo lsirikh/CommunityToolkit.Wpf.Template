@@ -33,14 +33,13 @@ public class SetupModel
     // 생성자 - 객체 생성 시 설정 파일을 자동으로 로드합니다.
     public SetupModel()
     {
-        LoadDefaultSettings();
     }
 
     /// <summary>
     /// config.json 파일에서 설정 정보를 로드합니다.
     /// 파일이 없거나 오류가 발생하면 기본값을 유지합니다.
     /// </summary>
-    private void LoadDefaultSettings()
+    public void LoadDefaultSettings()
     {
         try
         {
@@ -53,6 +52,7 @@ public class SetupModel
                 {
                     ApplicationName = settings.ApplicationName;
                     Version = settings.Version;
+                    Theme = settings.Theme;
                     // 필요한 경우 다른 속성들도 복사
                 }
             }

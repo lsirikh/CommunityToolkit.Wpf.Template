@@ -6,23 +6,48 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+
+    <!-- 템플릿 메타데이터 -->
+    <PackageId>Sensorway.WpfMvvm.Toolkit</PackageId>
+    <Title>Sensorway WPF MVVM Template</Title>
+    <Description>CommunityToolkit.Mvvm 및 Autofac을 포함한 MVVM 템플릿</Description>
+    <Version>1.0.0</Version>
+    <Authors>Sensorway</Authors>
+    <PackageType>Template</PackageType>
   </PropertyGroup>
 
+  <!-- 템플릿 파일 포함 -->
   <ItemGroup>
-    <Content Include=".template.config\template.json" />
+    <None Include=".template.config\**\*.*" Pack="true" PackagePath="content" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="config.json" />
+    <None Remove="Resources\Icons\Icon.jpg" />
+    <None Remove="Resources\Icons\Icon_Comm.ico" />
+    <None Remove="Resources\Icons\Icon_Comm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Icon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Icon_Comm.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Icon_Comm.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
+  <!-- 일반 파일 포함 -->
+
+  <!-- NuGet 참조 -->
   <ItemGroup>
     <PackageReference Include="Autofac" Version="8.2.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties _1template_1config_4template_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

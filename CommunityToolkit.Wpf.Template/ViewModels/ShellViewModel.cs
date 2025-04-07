@@ -28,6 +28,8 @@ namespace CommunityToolkit.Wpf.Template.ViewModels;
 public partial class ShellViewModel : ObservableObject
 {
     private readonly SetupModel _setupModel;
+    private bool _isExiting = false;
+
 
     // 메시지 송수신을 위한 Messenger 인스턴스 (DI 주입)
     [ObservableProperty]
@@ -116,9 +118,13 @@ public partial class ShellViewModel : ObservableObject
     [RelayCommand]
     private void Exit()
     {
+        if (_isExiting)
+            return;
+
         if (MessageBox.Show("애플리케이션을 종료하시겠습니까?", "종료 확인",
             MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
         {
+            _isExiting = true;
             Application.Current.Shutdown();
         }
     }
