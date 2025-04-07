@@ -1,0 +1,6 @@
+{
+    "ApplicationName": "Sensorway WPF App",
+    "Version": "1.0.0",
+    "ConfigPath": "config.json",
+    "Theme": "Dark"
+}

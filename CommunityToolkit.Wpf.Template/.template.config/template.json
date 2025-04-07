@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Sensorway",
+    "classifications": [
+        "WPF",
+        "MVVM",
+        "CommunityToolkit"
+    ],
+    "identity": "Sensorway.WpfMvvm.Toolkit",
+    "name": "Sensorway MVVM Toolkit WPF Template",
+    "shortName": "sw.mvvm.wpf",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "CommunityToolkit.Sample.Project"
+}
