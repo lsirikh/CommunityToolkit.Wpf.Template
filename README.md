@@ -1,108 +1,18 @@
-# CommunityToolkit.Wpf.Template
+# CommunityToolkit WPF Template
 
-### Current Version : v1.0.0
+.NET 8 / WPF 애플리케이션의 MVVM 시작 구조를 구성한 템플릿입니다. CommunityToolkit.Mvvm의 속성·명령 생성과 메시징을 사용하고 Autofac으로 의존성을 연결합니다.
 
----
+## 포함된 예제
 
-### ✅ Goal  
-> `CommunityToolkit.Wpf.Template`는 **.NET 기반의 WPF MVVM 애플리케이션을 빠르게 시작하기 위한 템플릿 프로젝트**입니다.  
-CommunityToolkit.MVVM과 Autofac을 기반으로 한 구조화된 MVVM 패턴을 제공합니다.
+- Bootstrapper와 ViewModel 기반 클래스
+- `ObservableProperty`, 취소 가능한 `RelayCommand`, 실행 조건 처리
+- `IMessenger`를 통한 화면 간 상태 전달
+- 데이터 패널과 정보 패널 분리
 
----
+[DataViewModel](CommunityToolkit.Wpf.Template/ViewModels/Panels/DataViewModel.cs)의 데이터 로딩은 `Task.Delay`를 이용한 동작 예제입니다. 실제 데이터 서비스는 애플리케이션에 맞게 연결해야 합니다.
 
-## 1. 템플릿 개요
+## 개발 환경
 
-### 1.1 개요  
-이 템플릿은 다음과 같은 기능을 기본 제공하며, **MVVM 설계에 익숙하지 않은 개발자도 쉽게 구조를 이해하고 확장**할 수 있도록 구성되어 있습니다.
+Windows, .NET 8 SDK, WPF 개발 도구가 필요합니다. 프로젝트의 주요 패키지는 CommunityToolkit.Mvvm 8.4.0과 Autofac 8.2.1입니다.
 
-- `CommunityToolkit.Mvvm` 기반 MVVM 구조
-- `Autofac` 기반 DI(Dependency Injection)
-- 메시징 중심 ViewModel 전환 구조 (Messenger)
-- `BootstrapperBase` 기반 앱 수명 주기 관리
-- `ViewLocatorTemplateSelector` 기반 ViewModel ↔ View 바인딩 자동화
-
----
-
-### 1.2 프로젝트 기본 구조
-
-#### **📂 ViewModels**
-> MVVM 구조의 ViewModel 폴더
-
-- `ShellViewModel.cs`  
-  - 애플리케이션의 메인 뷰모델
-- `InfoViewModel.cs`  
-  - 정보 화면 ViewModel
-- `DataViewModel.cs`  
-  - 데이터 처리 및 명령 실행 ViewModel
-
-#### **📂 Views**
-> XAML UI 화면
-
-- `ShellView.xaml`  
-  - 메인 Layout 화면
-- `InfoView.xaml`  
-  - 정보 출력 화면
-- `DataView.xaml`  
-  - 데이터 처리 화면
-
-#### **📂 Models**
-> 데이터 구조 정의
-
-- `SetupModel.cs`  
-  - 설정 정보 관리 모델
-- `InfoModel.cs`  
-  - 정보 출력용 데이터 모델
-
-#### **📂 Messages**
-> MVVM 간 메시지 통신 구조
-
-- `NavigationMessage.cs`  
-  - ViewModel 전환 메시지
-- `StatusChangedMessage.cs`  
-  - 상태 메시지 전파
-- `PanelClosedMessage.cs`, `CancellationRequestedMessage.cs`  
-  - 패널 종료, 취소 요청 메시지
-
-#### **📂 Navigations**
-> 패널 전환 관리자
-
-- `PanelNavigationManager.cs`  
-  - 메시지를 통해 ViewModel 전환을 수행
-
-#### **📂 Templates**
-> ViewModel ↔ View 자동 매핑 템플릿
-
-- `ViewLocatorTemplateSelector.cs`  
-  - `MainViewModel` → `MainView` 네이밍 기반으로 View 생성
-
-#### **📂 Bootstrapping**
-> 앱 시작, DI 구성, ViewModel 실행
-
-- `App.xaml.cs`  
-  - 애플리케이션 시작 진입점
-- `Bootstrapper.cs`  
-  - DI 및 중복 실행 방지, ViewModel 실행
-- `BootstrapperBase.cs`  
-  - DI + 수명주기 처리 공통 템플릿
-
----
-
-## 2. 주요 기술 스택
-
-| 항목 | 내용 |
-|------|------|
-| 플랫폼 | .NET 7.0 / .NET 8.0 (Windows Desktop) |
-| UI 프레임워크 | WPF |
-| MVVM 프레임워크 | [CommunityToolkit.Mvvm](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/) |
-| 의존성 주입 | Autofac |
-| 메시징 시스템 | CommunityToolkit.Mvvm.Messaging |
-| 템플릿 엔진 | dotnet CLI 템플릿 (`dotnet new`) |
-
----
-
-## 3. 설치 및 사용
-
-### 3.1 설치
-
-```bash
-dotnet new install CommunityToolkit.Wpf.Template
+[프로젝트 폴더](CommunityToolkit.Wpf.Template)를 열어 패키지를 복원하고 빌드합니다. 템플릿 메타데이터에는 Sensorway 명칭과 파일 치환용 항목이 있으므로, 새 프로젝트에 적용할 때 작성자·회사·리소스·설정을 맞춰야 합니다.
